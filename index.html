@@ -337,8 +337,8 @@ select option{background:var(--bg3)}
 // CONFIGURACIÓN — edita estas dos líneas si cambia
 // ═══════════════════════════════════════════════
 const PA_URL = 'https://defaultd59476705f934d1eb339486ce28cdf.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/3990db7422084c0eb8dc389036769801/triggers/manual/paths/invoke?api-version=1';
-const PA_ANALIZAR = 'https://defaultd59476705f934d1eb339486ce28cdf.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/204df270fd6e4bbd871bd5602640ab44/triggers/manual/paths/invoke?api-version=1';
-
+const PA_ANALIZAR = null;
+const CLAUDE_KEY = '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';
 // ═══════════════════════════════════════════════
 // ESTADO
 // ═══════════════════════════════════════════════
@@ -477,8 +477,8 @@ async function analyzeTicket(b64full){
   try {
     setStep('ap1','done'); setStep('ap2','active'); animFill(fill,40,78,700);
     const resp = await fetch(PA_ANALIZAR,{
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ imagen: b64, tipo: mtype })
+      method:'POST', headers:{'Content-Type':'application/json','x-api-key':CLAUDE_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,system:'Extrae datos de tickets de compra. Responde SOLO con JSON válido sin backticks. Formato: {"comercio":"nombre","importe":número,"fecha":"YYYY-MM-DD","categoria":"Alimentación|Combustible|Restauración|Alojamiento|Transporte|Farmacia|Material oficina|Otros","notas":"texto"}. Usa null si no puedes leer un campo.',messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:mtype,data:b64}},{type:'text',text:'Extrae los datos de este ticket.'}]}]})
     });
     setStep('ap2','done'); animFill(fill,78,95,300);
     const respText = await resp.text();
@@ -550,7 +550,7 @@ async function sendToPA(ticket){
   try {
     const r = await fetch(PA_URL, {
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+headers:{'Content-Type':'application/json','x-api-key':CLAUDE_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body: JSON.stringify({
         id: ticket.id,
         comercio: ticket.comercio,
