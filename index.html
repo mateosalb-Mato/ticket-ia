@@ -27,26 +27,16 @@
 }
 html,body{height:100%;overflow:hidden;background:var(--bg)}
 body{font-family:var(--font);font-size:14px;color:var(--text);line-height:1.5}
-
-/* APP SHELL */
-.app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:480px;margin:0 auto;position:relative}
-
-/* NAV */
-.nav{padding:calc(var(--safe-top) + 12px) 18px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--bg);flex-shrink:0;z-index:10}
+.app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:480px;margin:0 auto}
+.nav{padding:calc(var(--safe-top) + 12px) 18px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--bg);flex-shrink:0}
 .nav-logo{font-size:16px;font-weight:600;letter-spacing:-.5px;flex:1}
 .nav-logo span{color:var(--green)}
 .nav-pill{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border2);color:var(--text2);background:var(--bg3)}
-
-/* TABS */
 .tabs{display:flex;gap:3px;padding:8px 14px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
 .tab{flex:1;padding:8px 2px;border:none;background:none;color:var(--text3);font-family:var(--font);font-size:11px;font-weight:500;cursor:pointer;border-radius:var(--rs);transition:all .15s;text-align:center}
 .tab.active{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
-
-/* SCROLL AREA */
 .content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 16px calc(var(--safe-bot) + 80px)}
 .page{display:none}.page.active{display:block}
-
-/* BANNER */
 .banner{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--rs);margin-bottom:14px;border:1px solid var(--ms-b);background:var(--ms-d)}
 .b-icon{font-size:18px;flex-shrink:0}
 .b-info{flex:1;min-width:0}
@@ -55,21 +45,15 @@ body{font-family:var(--font);font-size:14px;color:var(--text);line-height:1.5}
 .bdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .dot-on{background:var(--green)}.dot-sync{background:var(--amber);animation:pulse 1s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* SUMMARY */
 .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
 .scard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px}
 .scard .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin-bottom:6px}
 .scard .val{font-size:22px;font-weight:600;font-family:var(--mono);letter-spacing:-1px;line-height:1}
 .scard .sub{font-size:11px;color:var(--text3);margin-top:4px}
 .amber{color:var(--amber)}.red{color:var(--red)}.green{color:var(--green)}
-
-/* SECTION TITLE */
 .stitle{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:8px;font-weight:500}
-
-/* TICKET LIST */
 .tlist{display:flex;flex-direction:column;gap:6px}
-.titem{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:border-color .15s;-webkit-user-select:none}
+.titem{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:border-color .15s}
 .titem:active{border-color:var(--border2);opacity:.85}
 .tthumb{width:40px;height:40px;border-radius:var(--rs);background:var(--bg3);border:1px solid var(--border);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
 .tthumb img{width:100%;height:100%;object-fit:cover}
@@ -78,38 +62,24 @@ body{font-family:var(--font);font-size:14px;color:var(--text);line-height:1.5}
 .tmeta{font-size:11px;color:var(--text2);margin-top:2px}
 .tright{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .tamount{font-family:var(--mono);font-size:14px;font-weight:500}
-
-/* TAGS */
-.tag{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:500;letter-spacing:.2px}
+.tag{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:500}
 .tag-ok{background:var(--green-b);color:var(--green);border:1px solid rgba(34,197,94,.25)}
 .tag-pend{background:var(--amber-b);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
 .tag-err{background:var(--red-b);color:var(--red);border:1px solid rgba(239,68,68,.25)}
 .tag-ms{background:var(--ms-b);color:var(--ms);border:1px solid rgba(0,120,212,.25)}
-
-/* FAB */
-.fab{position:fixed;bottom:calc(var(--safe-bot) + 20px);right:50%;transform:translateX(calc(50% + 190px));width:56px;height:56px;border-radius:50%;background:var(--green);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;color:#000;font-weight:600;box-shadow:0 4px 20px rgba(34,197,94,.4);z-index:20;-webkit-tap-highlight-color:transparent;transition:transform .15s,opacity .15s}
-.fab:active{opacity:.85;transform:translateX(calc(50% + 190px)) scale(.94)}
-@media(max-width:480px){.fab{right:20px;transform:none}.fab:active{transform:scale(.94)}}
-
-/* MODAL (bottom sheet) */
+.fab{position:fixed;bottom:calc(var(--safe-bot) + 20px);right:20px;width:56px;height:56px;border-radius:50%;background:var(--green);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;color:#000;font-weight:600;box-shadow:0 4px 20px rgba(34,197,94,.4);z-index:20;transition:opacity .15s}
+.fab:active{opacity:.85}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:30;display:none;align-items:flex-end;justify-content:center}
 .overlay.open{display:flex}
 .modal{background:var(--bg2);border-radius:20px 20px 0 0;border:1px solid var(--border);width:100%;max-width:480px;max-height:92dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:var(--safe-bot)}
 .modal-h{padding:18px 18px 0;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg2);z-index:1;border-radius:20px 20px 0 0}
 .modal-title{font-size:15px;font-weight:600}
-.mclose{background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:32px;height:32px;cursor:pointer;color:var(--text2);font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mclose{background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:32px;height:32px;cursor:pointer;color:var(--text2);font-size:18px;display:flex;align-items:center;justify-content:center}
 .modal-body{padding:16px}
-
-/* CAPTURE ZONE */
 .capzone{border:2px dashed var(--border2);border-radius:var(--r);padding:32px 16px;text-align:center;cursor:pointer;margin-bottom:12px;position:relative;overflow:hidden;transition:border-color .2s}
-.capzone:active{border-color:var(--green);background:rgba(34,197,94,.04)}
+.capzone:active{border-color:var(--green)}
 .capzone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.cap-icon{font-size:36px;display:block;margin-bottom:10px}
-.cap-label{font-size:13px;color:var(--text2);line-height:1.5}
-.cap-label strong{color:var(--text);font-weight:500}
 .cprev{width:100%;max-height:200px;object-fit:contain;border-radius:var(--rs);margin-bottom:12px;display:none}
-
-/* PROGRESS BAR */
 .pbar-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:14px;margin-bottom:12px;display:none}
 .pbar-wrap.show{display:block}
 .pbar{height:2px;background:var(--border);border-radius:1px;overflow:hidden;margin-bottom:8px}
@@ -118,39 +88,27 @@ body{font-family:var(--font);font-size:14px;color:var(--text);line-height:1.5}
 .pstep{font-size:10px;padding:2px 8px;border-radius:10px;background:var(--bg4);color:var(--text3);transition:all .2s}
 .pstep.active{background:var(--green-b);color:var(--green)}
 .pstep.done{background:var(--bg3);color:var(--text3);text-decoration:line-through}
-
-/* SYNC STATUS */
 .sync-st{display:none;align-items:center;gap:8px;padding:10px 12px;border-radius:var(--rs);margin-bottom:10px;font-size:12px;border:1px solid var(--ms-b);background:var(--ms-d);color:var(--text2)}
 .sync-st.show{display:flex}
 .sync-st.ok{border-color:rgba(34,197,94,.25);background:var(--green-d);color:var(--green)}
 .sync-st.err{border-color:rgba(239,68,68,.25);background:#1a0000;color:var(--red)}
-
-/* FIELDS */
 .fields{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
 .field{display:flex;flex-direction:column;gap:5px}
 .field label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);font-weight:500}
-.field input,.field select,.field textarea{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:11px 12px;color:var(--text);font-family:var(--font);font-size:16px;outline:none;transition:border-color .15s;width:100%;-webkit-appearance:none;appearance:none}
+.field input,.field select{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:11px 12px;color:var(--text);font-family:var(--font);font-size:16px;outline:none;transition:border-color .15s;width:100%;-webkit-appearance:none}
 .field input:focus,.field select:focus{border-color:var(--green)}
 .field-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
-/* BUTTONS */
-.btn{padding:13px 18px;border-radius:var(--rs);font-family:var(--font);font-size:14px;font-weight:500;cursor:pointer;border:none;transition:all .15s;-webkit-tap-highlight-color:transparent}
-.btn-prim{background:var(--green);color:#000}
-.btn-prim:active{opacity:.85}
+.btn{padding:13px 18px;border-radius:var(--rs);font-family:var(--font);font-size:14px;font-weight:500;cursor:pointer;border:none;transition:all .15s}
+.btn-prim{background:var(--green);color:#000}.btn-prim:active{opacity:.85}
 .btn-prim:disabled{opacity:.35;cursor:not-allowed}
 .btn-sec{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
-.btn-sec:active{opacity:.8}
 .brow{display:flex;gap:8px}.brow .btn{flex:1}
-
-/* DETAIL VIEW */
 .det-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .det-back{background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .det-img{width:100%;max-height:200px;object-fit:contain;border-radius:var(--r);background:var(--bg3);border:1px solid var(--border);margin-bottom:14px}
 .det-fields{display:flex;flex-direction:column;gap:6px}
 .det-row{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs)}
 .dr-lbl{font-size:11px;color:var(--text3)}.dr-val{font-size:13px;font-weight:500}
-
-/* EXTRACTO */
 .upload-area{border:2px dashed var(--border2);border-radius:var(--r);padding:40px 16px;text-align:center;cursor:pointer;position:relative;margin-bottom:14px;transition:border-color .2s}
 .upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
 .upload-area:active{border-color:var(--green)}
@@ -163,59 +121,31 @@ body{font-family:var(--font);font-size:14px;color:var(--text);line-height:1.5}
 .mdate{font-size:10px;color:var(--text3)}
 .mamount{font-family:var(--mono);font-size:12px;flex-shrink:0}
 .mconn{width:1px;height:14px;background:var(--border);margin:3px 0 3px 3px}
-
-/* EMPTY */
 .empty{text-align:center;padding:48px 20px;color:var(--text3)}
 .empty-icon{font-size:48px;margin-bottom:12px}
 .empty p{font-size:13px;line-height:1.7}
-
-/* INFORME */
 .inf-card{background:var(--bg2);border:1px solid rgba(239,68,68,.3);border-radius:var(--r);padding:16px;margin-bottom:14px}
 .inf-card .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:6px}
 .inf-card .val{font-size:28px;font-weight:600;font-family:var(--mono);color:var(--red);letter-spacing:-1.5px}
 .inf-card .sub{font-size:11px;color:var(--text3);margin-top:4px}
-
-/* TOAST */
 .toast{position:fixed;bottom:calc(var(--safe-bot) + 86px);left:50%;transform:translateX(-50%) translateY(16px);background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rs);padding:10px 18px;font-size:13px;opacity:0;transition:all .25s;z-index:50;white-space:nowrap;pointer-events:none;max-width:88vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* INSTALL BANNER */
-.install-banner{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:14px 16px;margin-bottom:14px;display:none}
-.install-banner.show{display:block}
-.ib-title{font-size:13px;font-weight:500;margin-bottom:4px}
-.ib-text{font-size:11px;color:var(--text2);line-height:1.5}
-.ib-close{float:right;background:none;border:none;color:var(--text3);font-size:16px;cursor:pointer;margin-top:-2px}
-
 select option{background:var(--bg3)}
 </style>
 </head>
 <body>
 <div class="app">
-
-  <!-- NAV -->
   <nav class="nav">
     <div class="nav-logo">ticket<span>.</span>ia</div>
     <div class="nav-pill" id="navMonth"></div>
   </nav>
-
-  <!-- TABS -->
   <div class="tabs">
     <button class="tab active" onclick="showPage('tickets')" id="tab-tickets">📋 Tickets</button>
     <button class="tab" onclick="showPage('extracto')" id="tab-extracto">🏦 Extracto</button>
     <button class="tab" onclick="showPage('informe')" id="tab-informe">📊 Informe</button>
   </div>
-
-  <!-- CONTENT -->
   <div class="content">
-
-    <!-- TICKETS -->
     <div class="page active" id="page-tickets">
-      <div class="install-banner" id="installBanner">
-        <button class="ib-close" onclick="this.parentElement.classList.remove('show')">×</button>
-        <div class="ib-title" id="installTitle">Añadir a pantalla de inicio</div>
-        <div class="ib-text" id="installText"></div>
-      </div>
-
       <div class="banner">
         <div class="b-icon">⚡</div>
         <div class="b-info">
@@ -224,7 +154,6 @@ select option{background:var(--bg3)}
         </div>
         <div class="bdot dot-on" id="paDot"></div>
       </div>
-
       <div class="sgrid">
         <div class="scard"><div class="lbl">Este mes</div><div class="val amber" id="totalAmt">0,00 €</div><div class="sub" id="totalCnt">0 tickets</div></div>
         <div class="scard"><div class="lbl">Sin cuadrar</div><div class="val red" id="pendCnt">0</div><div class="sub">pendientes</div></div>
@@ -234,8 +163,6 @@ select option{background:var(--bg3)}
         <div class="empty"><div class="empty-icon">🧾</div><p>Sin tickets aún.<br>Pulsa <strong>+</strong> para añadir.</p></div>
       </div>
     </div>
-
-    <!-- EXTRACTO -->
     <div class="page" id="page-extracto">
       <div class="stitle" style="margin-bottom:12px">Extracto bancario (PDF)</div>
       <div class="upload-area">
@@ -249,27 +176,22 @@ select option{background:var(--bg3)}
           <span class="pstep" id="ps1">Leyendo PDF</span>
           <span class="pstep" id="ps2">Extrayendo movimientos</span>
           <span class="pstep" id="ps3">Cruzando tickets</span>
-          <span class="pstep" id="ps4">Enviando cuadre</span>
+          <span class="pstep" id="ps4">Guardando cuadre</span>
         </div>
       </div>
       <div id="matchList"></div>
     </div>
-
-    <!-- INFORME -->
     <div class="page" id="page-informe">
       <div class="stitle" style="margin-bottom:12px">Gastos sin justificar</div>
       <div id="informeContent">
         <div class="empty"><div class="empty-icon">✅</div><p>Carga el extracto bancario<br>para ver el informe mensual.</p></div>
       </div>
     </div>
+  </div>
+</div>
 
-  </div><!-- /content -->
-</div><!-- /app -->
-
-<!-- FAB -->
 <button class="fab" id="fabBtn" onclick="openModal()">+</button>
 
-<!-- MODAL NUEVO TICKET -->
 <div class="overlay" id="overlay" onclick="overlayClick(event)">
   <div class="modal">
     <div class="modal-h">
@@ -279,26 +201,20 @@ select option{background:var(--bg3)}
     <div class="modal-body">
       <div class="capzone" id="capzone">
         <input type="file" accept="image/*" capture="environment" id="imgInput" onchange="handleImg(this)">
-        <span class="cap-icon">📷</span>
-        <div class="cap-label"><strong>Hacer foto o subir imagen</strong><br>La IA extrae los datos del ticket</div>
+        <span style="font-size:36px;display:block;margin-bottom:10px">📷</span>
+        <div style="font-size:13px;color:var(--text2);line-height:1.5"><strong style="color:var(--text);font-weight:500">Hacer foto o subir imagen</strong><br>La IA extrae los datos del ticket</div>
       </div>
       <img class="cprev" id="cprev">
-
       <div class="pbar-wrap" id="aiPbar">
         <div class="pbar"><div class="pbar-fill" id="aiFill"></div></div>
         <div class="pbar-steps">
-          <span class="pstep" id="ap1">Analizando imagen</span>
-          <span class="pstep" id="ap2">Extrayendo datos</span>
-          <span class="pstep" id="ap3">Enviando a Power Automate</span>
-          <span class="pstep" id="ap4">Guardado en SharePoint</span>
+          <span class="pstep" id="ap1">Comprimiendo imagen</span>
+          <span class="pstep" id="ap2">Analizando con IA</span>
+          <span class="pstep" id="ap3">Extrayendo datos</span>
+          <span class="pstep" id="ap4">Listo</span>
         </div>
       </div>
-
-      <div class="sync-st" id="syncSt">
-        <span id="syncIcon">⚡</span>
-        <span id="syncText">Enviando...</span>
-      </div>
-
+      <div class="sync-st" id="syncSt"><span id="syncIcon">⚡</span><span id="syncText">Guardando...</span></div>
       <div class="fields">
         <div class="field"><label>Establecimiento</label><input id="fCom" placeholder="Mercadona, Repsol..." autocomplete="off"></div>
         <div class="field-2">
@@ -321,7 +237,6 @@ select option{background:var(--bg3)}
         </div>
         <div class="field"><label>Notas</label><input id="fNot" placeholder="Descripción adicional..." autocomplete="off"></div>
       </div>
-
       <div class="brow">
         <button class="btn btn-sec" onclick="closeModal()">Cancelar</button>
         <button class="btn btn-prim" id="saveBtn" onclick="saveTicket()" disabled>Guardar</button>
@@ -329,16 +244,16 @@ select option{background:var(--bg3)}
     </div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
 // ═══════════════════════════════════════════════
-// CONFIGURACIÓN — edita estas dos líneas si cambia
+// CONFIGURACIÓN — AÑADE TU API KEY AQUÍ
 // ═══════════════════════════════════════════════
+
+const CLAUDE_URL = 'https://ticket-ia-proxy.mateos-alb.workers.dev/';
 const PA_URL = 'https://defaultd59476705f934d1eb339486ce28cdf.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/3990db7422084c0eb8dc389036769801/triggers/manual/paths/invoke?api-version=1';
-const PA_ANALIZAR = null;
-const CLAUDE_KEY = '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';
+
 // ═══════════════════════════════════════════════
 // ESTADO
 // ═══════════════════════════════════════════════
@@ -353,31 +268,8 @@ let curB64 = null;
   const mo = new Date();
   document.getElementById('navMonth').textContent =
     mo.toLocaleDateString('es-ES',{month:'long',year:'numeric'}).replace(/^\w/,c=>c.toUpperCase());
-  setTodayDate();
-  renderTickets();
-  updateSummary();
-  showInstallHint();
+  setTodayDate(); renderTickets(); updateSummary();
 })();
-
-// ═══════════════════════════════════════════════
-// INSTALL HINT (PWA)
-// ═══════════════════════════════════════════════
-function showInstallHint(){
-  const ua = navigator.userAgent;
-  const isIOS = /iphone|ipad|ipod/i.test(ua);
-  const isAndroid = /android/i.test(ua);
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-  if(isStandalone) return;
-  const banner = document.getElementById('installBanner');
-  const text = document.getElementById('installText');
-  if(isIOS){
-    text.textContent = 'Toca el botón Compartir (□↑) y luego "Añadir a pantalla de inicio" para usar como app.';
-    banner.classList.add('show');
-  } else if(isAndroid){
-    text.textContent = 'Toca el menú del navegador (⋮) y selecciona "Añadir a pantalla de inicio".';
-    banner.classList.add('show');
-  }
-}
 
 // ═══════════════════════════════════════════════
 // NAVEGACIÓN
@@ -399,26 +291,20 @@ function openModal(){
   document.getElementById('capzone').style.display = 'block';
   document.getElementById('cprev').style.display = 'none';
   document.getElementById('aiPbar').classList.remove('show');
-  setSyncSt('','',false);
-  curB64 = null;
-  // Evitar scroll del fondo en iOS
+  setSyncSt('','',false); curB64 = null;
   document.body.style.overflow = 'hidden';
 }
 function closeModal(){
   document.getElementById('overlay').classList.remove('open');
-  document.body.style.overflow = '';
-  resetForm();
+  document.body.style.overflow = ''; resetForm();
 }
-function overlayClick(e){
-  if(e.target===document.getElementById('overlay')) closeModal();
-}
+function overlayClick(e){ if(e.target===document.getElementById('overlay')) closeModal(); }
 function resetForm(){
   ['fCom','fImp','fNot'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('fCat').value='';
   document.getElementById('imgInput').value='';
   document.getElementById('cprev').style.display='none';
-  setTodayDate();
-  curB64=null; editId=null;
+  setTodayDate(); curB64=null; editId=null;
   document.getElementById('modalTitle').textContent='Nuevo ticket';
 }
 function setTodayDate(){
@@ -427,7 +313,7 @@ function setTodayDate(){
 }
 
 // ═══════════════════════════════════════════════
-// IMAGEN + IA
+// IMAGEN: CAPTURA Y COMPRESIÓN
 // ═══════════════════════════════════════════════
 function handleImg(input){
   const file = input.files[0]; if(!file) return;
@@ -443,62 +329,79 @@ function handleImg(input){
   reader.readAsDataURL(file);
 }
 
-
-// Comprime imagen a máximo 800px y calidad 0.7
 function compressImage(b64full){
   return new Promise(resolve=>{
     const img = new Image();
     img.onload = function(){
-      const canvas = document.createElement("canvas");
+      const canvas = document.createElement('canvas');
       const MAX = 800;
       let w = img.width, h = img.height;
       if(w > MAX || h > MAX){
-        if(w > h){ h = Math.round(h * MAX/w); w = MAX; }
-        else { w = Math.round(w * MAX/h); h = MAX; }
+        if(w > h){ h = Math.round(h*MAX/w); w = MAX; }
+        else { w = Math.round(w*MAX/h); h = MAX; }
       }
       canvas.width = w; canvas.height = h;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL("image/jpeg", 0.7));
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      resolve(canvas.toDataURL('image/jpeg',0.75));
     };
     img.src = b64full;
   });
 }
 
+// ═══════════════════════════════════════════════
+// ANÁLISIS IA (LLAMADA DIRECTA A CLAUDE)
+// ═══════════════════════════════════════════════
 async function analyzeTicket(b64full){
   const pbar = document.getElementById('aiPbar');
   const fill = document.getElementById('aiFill');
   pbar.classList.add('show');
-  setStep('ap1','active'); animFill(fill,0,40,600);
+  setStep('ap1','done'); setStep('ap2','active'); animFill(fill,25,65,700);
 
   const b64   = b64full.split(',')[1];
-  const mtype = b64full.split(';')[0].split(':')[1] || 'image/jpeg';
+  const mtype = 'image/jpeg';
 
   try {
-    setStep('ap1','done'); setStep('ap2','active'); animFill(fill,40,78,700);
-    const resp = await fetch(PA_ANALIZAR,{
-      method:'POST', headers:{'Content-Type':'application/json','x-api-key':CLAUDE_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,system:'Extrae datos de tickets de compra. Responde SOLO con JSON válido sin backticks. Formato: {"comercio":"nombre","importe":número,"fecha":"YYYY-MM-DD","categoria":"Alimentación|Combustible|Restauración|Alojamiento|Transporte|Farmacia|Material oficina|Otros","notas":"texto"}. Usa null si no puedes leer un campo.',messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:mtype,data:b64}},{type:'text',text:'Extrae los datos de este ticket.'}]}]})
+    const resp = await fetch(CLAUDE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        
+        
+        
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 500,
+        system: 'Extrae datos de tickets de compra. Responde SOLO con JSON válido sin backticks ni texto extra. Formato exacto: {"comercio":"nombre del establecimiento","importe":número_decimal,"fecha":"YYYY-MM-DD","categoria":"Alimentación|Combustible|Restauración|Alojamiento|Transporte|Farmacia|Material oficina|Otros","notas":"descripción breve"}. Usa null si no puedes leer un campo.',
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'image', source: { type: 'base64', media_type: mtype, data: b64 } },
+            { type: 'text', text: 'Extrae los datos de este ticket de compra.' }
+          ]
+        }]
+      })
     });
-    setStep('ap2','done'); animFill(fill,78,95,300);
-    const respText = await resp.text();
-    showToast('PA status: ' + resp.status + ' · ' + respText.slice(0,60));
-    let data = {};
-    try{ data = JSON.parse(respText); }catch(e){}
-    // Power Automate devuelve la respuesta de Claude directamente
-    const raw = data?.content?.[0]?.text || data?.body?.content?.[0]?.text || data?.value || respText || '{}';
+
+    setStep('ap2','done'); setStep('ap3','active'); animFill(fill,65,90,400);
+
+    const data = await resp.json();
+    const raw  = data?.content?.[0]?.text || '{}';
     let p = {};
     try{ p = JSON.parse(raw.replace(/```json|```/g,'').trim()); }catch(e){}
-    if(p.comercio)    document.getElementById('fCom').value = p.comercio;
+
+    if(p.comercio)      document.getElementById('fCom').value = p.comercio;
     if(p.importe!=null) document.getElementById('fImp').value = p.importe;
-    if(p.fecha)       document.getElementById('fFec').value = p.fecha;
+    if(p.fecha)         document.getElementById('fFec').value = p.fecha;
     if(p.categoria){
       const sel = document.getElementById('fCat');
       for(let o of sel.options){ if(o.value.includes(p.categoria)){ sel.value=o.value; break; } }
     }
     if(p.notas) document.getElementById('fNot').value = p.notas;
-    animFill(fill,95,100,200);
+
+    setStep('ap3','done'); setStep('ap4','done'); animFill(fill,90,100,200);
     setTimeout(()=>{ pbar.classList.remove('show'); document.getElementById('saveBtn').disabled=false; showToast('✅ Datos extraídos automáticamente'); },300);
+
   } catch(e){
     pbar.classList.remove('show');
     document.getElementById('saveBtn').disabled = false;
@@ -507,63 +410,49 @@ async function analyzeTicket(b64full){
 }
 
 // ═══════════════════════════════════════════════
-// GUARDAR TICKET + POWER AUTOMATE
+// GUARDAR TICKET
 // ═══════════════════════════════════════════════
 async function saveTicket(){
   const comercio = document.getElementById('fCom').value.trim();
-  const importe  = parseFloat(document.getElementById('fImp').value) || 0;
+  const importe  = parseFloat(document.getElementById('fImp').value)||0;
   const fecha    = document.getElementById('fFec').value;
   const cat      = document.getElementById('fCat').value;
   const notas    = document.getElementById('fNot').value.trim();
   if(!comercio||!importe||!fecha){ showToast('⚠️ Completa comercio, importe y fecha'); return; }
 
   const ticket = {
-    id: editId || Date.now().toString(),
-    comercio, importe, fecha, categoria: cat, notas,
-    estado: 'pendiente',
-    mes: fecha.slice(0,7),
-    ts: new Date().toISOString(),
-    imagen: curB64 || null,
-    paSync: false
+    id: editId||Date.now().toString(),
+    comercio, importe, fecha, categoria:cat, notas,
+    estado:'pendiente', mes:fecha.slice(0,7),
+    ts:new Date().toISOString(), imagen:curB64||null, paSync:false
   };
 
   document.getElementById('saveBtn').disabled = true;
-  setSyncSt('⚡','Enviando a Power Automate...',true,'');
-
+  setSyncSt('⚡','Guardando en SharePoint...',true,'');
   const paOk = await sendToPA(ticket);
   ticket.paSync = paOk;
 
-  if(editId) tickets = tickets.map(t=>t.id===editId ? ticket : t);
+  if(editId) tickets=tickets.map(t=>t.id===editId?ticket:t);
   else tickets.unshift(ticket);
   saveLocal(); renderTickets(); updateSummary();
 
   if(paOk){
-    setSyncSt('✅','Guardado en SharePoint + OneDrive',true,'ok');
+    setSyncSt('✅','Guardado en SharePoint',true,'ok');
     setTimeout(()=>{ setSyncSt('','',false); closeModal(); showToast('☁️ Ticket guardado en SharePoint'); },1200);
   } else {
-    setSyncSt('⚠️','No se pudo conectar · guardado en local',true,'err');
+    setSyncSt('⚠️','Sin conexión · guardado local',true,'err');
     setTimeout(()=>{ setSyncSt('','',false); closeModal(); showToast('💾 Guardado localmente'); },1800);
   }
 }
 
 async function sendToPA(ticket){
-  try {
-    const r = await fetch(PA_URL, {
-      method:'POST',
-headers:{'Content-Type':'application/json','x-api-key':CLAUDE_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body: JSON.stringify({
-        id: ticket.id,
-        comercio: ticket.comercio,
-        importe: ticket.importe,
-        fecha: ticket.fecha,
-        categoria: ticket.categoria||'',
-        notas: ticket.notas||'',
-        estado: ticket.estado,
-        mes: ticket.mes
-      })
+  try{
+    const r = await fetch(PA_URL,{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({ id:ticket.id, comercio:ticket.comercio, importe:ticket.importe, fecha:ticket.fecha, categoria:ticket.categoria||'', notas:ticket.notas||'', estado:ticket.estado, mes:ticket.mes })
     });
-    return r.status===202 || r.status===200 || r.ok;
-  } catch(e){ return false; }
+    return r.status===202||r.status===200||r.ok;
+  }catch(e){ return false; }
 }
 
 function setSyncSt(icon,text,show,type){
@@ -573,52 +462,44 @@ function setSyncSt(icon,text,show,type){
   el.className='sync-st'+(show?' show':'')+(type?' '+type:'');
 }
 
-// ═══════════════════════════════════════════════
-// GUARDAR LOCAL
-// ═══════════════════════════════════════════════
 function saveLocal(){ localStorage.setItem('tickets_v3',JSON.stringify(tickets)); }
 
 // ═══════════════════════════════════════════════
-// RENDER TICKETS
+// RENDER
 // ═══════════════════════════════════════════════
 function renderTickets(){
-  const list = document.getElementById('ticketList');
+  const list=document.getElementById('ticketList');
   if(!tickets.length){
-    list.innerHTML=`<div class="empty"><div class="empty-icon">🧾</div><p>Sin tickets aún.<br>Pulsa <strong>+</strong> para añadir.</p></div>`;
+    list.innerHTML='<div class="empty"><div class="empty-icon">🧾</div><p>Sin tickets aún.<br>Pulsa <strong>+</strong> para añadir.</p></div>';
     return;
   }
-  const sorted = [...tickets].sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));
-  list.innerHTML = sorted.map(t=>`
+  list.innerHTML=[...tickets].sort((a,b)=>new Date(b.fecha)-new Date(a.fecha)).map(t=>`
     <div class="titem" onclick="showDetail('${t.id}')">
       <div class="tthumb">${t.imagen?`<img src="${t.imagen}" alt="">`:'🧾'}</div>
-      <div class="tinfo">
-        <div class="tname">${esc(t.comercio)}</div>
-        <div class="tmeta">${fmtDate(t.fecha)}${t.categoria?' · '+t.categoria.split(' ').slice(1).join(' '):''}</div>
-      </div>
+      <div class="tinfo"><div class="tname">${esc(t.comercio)}</div><div class="tmeta">${fmtDate(t.fecha)}${t.categoria?' · '+t.categoria.split(' ').slice(1).join(' '):''}</div></div>
       <div class="tright">
         <div class="tamount">${fmtEur(t.importe)}</div>
         <span class="tag ${t.estado==='ok'?'tag-ok':t.estado==='error'?'tag-err':'tag-pend'}">${t.estado==='ok'?'Cuadrado':t.estado==='error'?'Discrepancia':'Pendiente'}</span>
-        ${t.paSync?'<span class="tag tag-ms">⚡ PA</span>':''}
+        ${t.paSync?'<span class="tag tag-ms">☁️</span>':''}
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function updateSummary(){
-  const mes = new Date().toISOString().slice(0,7);
-  const del = tickets.filter(t=>t.fecha&&t.fecha.startsWith(mes));
-  const total = del.reduce((s,t)=>s+t.importe,0);
-  const pend  = del.filter(t=>t.estado==='pendiente').length;
-  document.getElementById('totalAmt').textContent = fmtEur(total);
-  document.getElementById('totalCnt').textContent = `${del.length} ticket${del.length!==1?'s':''}`;
-  document.getElementById('pendCnt').textContent  = pend;
+  const mes=new Date().toISOString().slice(0,7);
+  const del=tickets.filter(t=>t.fecha&&t.fecha.startsWith(mes));
+  const total=del.reduce((s,t)=>s+t.importe,0);
+  const pend=del.filter(t=>t.estado==='pendiente').length;
+  document.getElementById('totalAmt').textContent=fmtEur(total);
+  document.getElementById('totalCnt').textContent=`${del.length} ticket${del.length!==1?'s':''}`;
+  document.getElementById('pendCnt').textContent=pend;
 }
 
 // ═══════════════════════════════════════════════
 // DETALLE
 // ═══════════════════════════════════════════════
 function showDetail(id){
-  const t = tickets.find(x=>x.id===id); if(!t) return;
+  const t=tickets.find(x=>x.id===id); if(!t) return;
   document.getElementById('page-tickets').innerHTML=`
     <div class="det-hd">
       <button class="det-back" onclick="backList()">←</button>
@@ -632,42 +513,32 @@ function showDetail(id){
       <div class="det-row"><span class="dr-lbl">Fecha</span><span class="dr-val">${fmtDate(t.fecha)}</span></div>
       <div class="det-row"><span class="dr-lbl">Categoría</span><span class="dr-val">${t.categoria||'—'}</span></div>
       ${t.notas?`<div class="det-row"><span class="dr-lbl">Notas</span><span class="dr-val">${esc(t.notas)}</span></div>`:''}
-      <div class="det-row"><span class="dr-lbl">Power Automate</span><span class="dr-val" style="color:${t.paSync?'var(--green)':'var(--text3)'}">${t.paSync?'✅ Sincronizado':'⏳ Pendiente sync'}</span></div>
-      <div class="det-row"><span class="dr-lbl">Registrado</span><span class="dr-val">${fmtDate(t.ts?.slice(0,10)||t.fecha)}</span></div>
+      <div class="det-row"><span class="dr-lbl">SharePoint</span><span class="dr-val" style="color:${t.paSync?'var(--green)':'var(--text3)'}">${t.paSync?'✅ Sincronizado':'⏳ Pendiente'}</span></div>
     </div>
     <div class="brow" style="margin-top:14px">
       <button class="btn btn-sec" onclick="delTicket('${t.id}')">🗑 Eliminar</button>
       <button class="btn btn-prim" onclick="editTicket('${t.id}')">✏️ Editar</button>
-    </div>
-  `;
+    </div>`;
 }
 
 function backList(){
   document.getElementById('page-tickets').innerHTML=`
-    <div class="install-banner" id="installBanner"></div>
-    <div class="banner">
-      <div class="b-icon">⚡</div>
-      <div class="b-info"><div class="b-name">Power Automate conectado</div><div class="b-sub" id="paStatus">Listo · SharePoint + OneDrive</div></div>
-      <div class="bdot dot-on" id="paDot"></div>
-    </div>
+    <div class="banner"><div class="b-icon">⚡</div><div class="b-info"><div class="b-name">Power Automate conectado</div><div class="b-sub" id="paStatus">Listo · SharePoint + OneDrive</div></div><div class="bdot dot-on" id="paDot"></div></div>
     <div class="sgrid">
       <div class="scard"><div class="lbl">Este mes</div><div class="val amber" id="totalAmt">0,00 €</div><div class="sub" id="totalCnt">0 tickets</div></div>
       <div class="scard"><div class="lbl">Sin cuadrar</div><div class="val red" id="pendCnt">0</div><div class="sub">pendientes</div></div>
     </div>
     <div class="stitle">Últimos registros</div>
-    <div class="tlist" id="ticketList"></div>
-  `;
+    <div class="tlist" id="ticketList"></div>`;
   renderTickets(); updateSummary();
 }
 
 function delTicket(id){
   if(!confirm('¿Eliminar este ticket?')) return;
-  tickets = tickets.filter(t=>t.id!==id);
-  saveLocal(); backList(); showToast('🗑 Ticket eliminado');
+  tickets=tickets.filter(t=>t.id!==id); saveLocal(); backList(); showToast('🗑 Eliminado');
 }
-
 function editTicket(id){
-  const t = tickets.find(x=>x.id===id); if(!t) return;
+  const t=tickets.find(x=>x.id===id); if(!t) return;
   editId=id; backList(); openModal();
   document.getElementById('modalTitle').textContent='Editar ticket';
   setTimeout(()=>{
@@ -682,7 +553,7 @@ function editTicket(id){
 }
 
 // ═══════════════════════════════════════════════
-// PDF / EXTRACTO
+// PDF EXTRACTO
 // ═══════════════════════════════════════════════
 async function handlePDF(input){
   const file=input.files[0]; if(!file) return;
@@ -694,31 +565,26 @@ async function handlePDF(input){
     const b64=e.target.result.split(',')[1];
     try{
       setStep('ps1','done'); setStep('ps2','active'); animFill(fill,25,60,800);
-      const resp=await fetch(PA_ANALIZAR,{
-        method:'POST',headers:{'Content-Type':'application/json'},
+      const resp=await fetch(CLAUDE_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
-          imagen: b64,
-          tipo: 'application/pdf',
-          modo: 'extracto'
+          model:'claude-sonnet-4-20250514',max_tokens:1500,
+          system:'Eres experto en extractos bancarios españoles. Responde SOLO con JSON válido sin backticks. Formato: {"movimientos":[{"fecha":"YYYY-MM-DD","descripcion":"texto","importe":número_negativo}]}. Solo cargos/salidas. Máximo 30.',
+          messages:[{role:'user',content:[
+            {type:'document',source:{type:'base64',media_type:'application/pdf',data:b64}},
+            {type:'text',text:'Extrae todos los cargos de este extracto bancario español.'}
+          ]}]
         })
       });
       setStep('ps2','done'); setStep('ps3','active'); animFill(fill,60,85,600);
       const data=await resp.json();
-      const raw=data?.content?.[0]?.text || data?.body?.content?.[0]?.text || '{"movimientos":[]}';
+      const raw=data?.content?.[0]?.text||'{"movimientos":[]}';
       let parsed={movimientos:[]};
       try{parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());}catch(e){}
       const result=doMatch(parsed.movimientos||[]);
       setStep('ps3','done'); setStep('ps4','active'); animFill(fill,85,100,400);
-      await sendToPA({
-        id:'cuadre_'+new Date().toISOString().slice(0,7),
-        comercio:'CUADRE MENSUAL',
-        importe: result.unmatched.reduce((s,m)=>s+Math.abs(m.importe),0),
-        fecha: new Date().toISOString().slice(0,10),
-        categoria:'Cuadre',
-        notas:`Cuadrados: ${result.matched.length} · Sin ticket: ${result.unmatched.length}`,
-        estado: result.unmatched.length===0?'ok':'pendiente',
-        mes: new Date().toISOString().slice(0,7)
-      });
+      await sendToPA({id:'cuadre_'+new Date().toISOString().slice(0,7),comercio:'CUADRE MENSUAL',importe:result.unmatched.reduce((s,m)=>s+Math.abs(m.importe),0),fecha:new Date().toISOString().slice(0,10),categoria:'Cuadre',notas:`Cuadrados: ${result.matched.length} · Sin ticket: ${result.unmatched.length}`,estado:result.unmatched.length===0?'ok':'pendiente',mes:new Date().toISOString().slice(0,7)});
       setStep('ps4','done');
       setTimeout(()=>{ pbar.classList.remove('show'); renderMatches(result); },300);
     }catch(err){ pbar.classList.remove('show'); showToast('⚠️ Error al procesar el PDF'); }
@@ -730,10 +596,7 @@ function doMatch(movimientos){
   const matched=[],unmatched=[],usedIds=new Set();
   movimientos.forEach(mov=>{
     const imp=Math.abs(mov.importe);
-    const best=tickets.filter(t=>{
-      if(usedIds.has(t.id)||t.estado==='ok') return false;
-      return Math.abs(new Date(t.fecha)-new Date(mov.fecha))/86400000<=3 && Math.abs(t.importe-imp)<0.02;
-    }).sort((a,b)=>Math.abs(a.importe-b.importe))[0];
+    const best=tickets.filter(t=>{ if(usedIds.has(t.id)||t.estado==='ok') return false; return Math.abs(new Date(t.fecha)-new Date(mov.fecha))/86400000<=3&&Math.abs(t.importe-imp)<0.02; }).sort((a,b)=>Math.abs(a.importe-b.importe))[0];
     if(best){ usedIds.add(best.id); matched.push({mov,ticket:best}); best.estado='ok'; }
     else { unmatched.push(mov); }
   });
@@ -746,19 +609,15 @@ function renderMatches(r){
   let html=`<div class="stitle" style="margin-bottom:8px">${matched.length+unmatched.length} movimientos analizados</div>`;
   if(matched.length){
     html+=`<div class="stitle" style="color:var(--green);margin-bottom:6px">✅ Cuadrados (${matched.length})</div>`;
-    matched.forEach(({mov,ticket})=>{
-      html+=`<div class="match-item"><div class="mrow"><div class="mdot" style="background:var(--green)"></div><div class="mlabel" style="color:var(--green);font-size:10px">Extracto</div><div class="minfo"><div class="mname">${esc(mov.descripcion)}</div><div class="mdate">${fmtDate(mov.fecha)}</div></div><div class="mamount" style="color:var(--green)">${fmtEur(Math.abs(mov.importe))}</div></div><div class="mconn"></div><div class="mrow"><div class="mdot" style="background:var(--text3)"></div><div class="mlabel" style="font-size:10px">Ticket</div><div class="minfo"><div class="mname">${esc(ticket.comercio)}</div><div class="mdate">${fmtDate(ticket.fecha)}</div></div><div class="mamount">${fmtEur(ticket.importe)}</div></div></div>`;
-    });
+    matched.forEach(({mov,ticket})=>{ html+=`<div class="match-item"><div class="mrow"><div class="mdot" style="background:var(--green)"></div><div class="mlabel" style="color:var(--green);font-size:10px">Extracto</div><div class="minfo"><div class="mname">${esc(mov.descripcion)}</div><div class="mdate">${fmtDate(mov.fecha)}</div></div><div class="mamount" style="color:var(--green)">${fmtEur(Math.abs(mov.importe))}</div></div><div class="mconn"></div><div class="mrow"><div class="mdot" style="background:var(--text3)"></div><div class="mlabel" style="font-size:10px">Ticket</div><div class="minfo"><div class="mname">${esc(ticket.comercio)}</div><div class="mdate">${fmtDate(ticket.fecha)}</div></div><div class="mamount">${fmtEur(ticket.importe)}</div></div></div>`; });
   }
   if(unmatched.length){
     html+=`<div class="stitle" style="color:var(--red);margin:10px 0 6px">⚠️ Sin ticket (${unmatched.length})</div>`;
-    unmatched.forEach(mov=>{
-      html+=`<div class="match-item" style="border-color:rgba(239,68,68,.25)"><div class="mrow"><div class="mdot" style="background:var(--red)"></div><div class="mlabel" style="color:var(--red);font-size:10px">Extracto</div><div class="minfo"><div class="mname">${esc(mov.descripcion)}</div><div class="mdate">${fmtDate(mov.fecha)}</div></div><div class="mamount" style="color:var(--red)">${fmtEur(Math.abs(mov.importe))}</div></div><div style="padding:5px 0 0 16px;font-size:10px;color:var(--text3)">Sin ticket asociado</div></div>`;
-    });
+    unmatched.forEach(mov=>{ html+=`<div class="match-item" style="border-color:rgba(239,68,68,.25)"><div class="mrow"><div class="mdot" style="background:var(--red)"></div><div class="mlabel" style="color:var(--red);font-size:10px">Extracto</div><div class="minfo"><div class="mname">${esc(mov.descripcion)}</div><div class="mdate">${fmtDate(mov.fecha)}</div></div><div class="mamount" style="color:var(--red)">${fmtEur(Math.abs(mov.importe))}</div></div><div style="padding:5px 0 0 16px;font-size:10px;color:var(--text3)">Sin ticket asociado</div></div>`; });
     buildInforme(unmatched);
   }
   document.getElementById('matchList').innerHTML=html;
-  renderTickets(); showToast('⚡ Cuadre enviado a Power Automate');
+  renderTickets(); showToast('✅ Cuadre completado');
 }
 
 function buildInforme(unmatched){
@@ -766,8 +625,7 @@ function buildInforme(unmatched){
   document.getElementById('informeContent').innerHTML=`
     <div class="inf-card"><div class="lbl">Total sin justificar</div><div class="val">${fmtEur(total)}</div><div class="sub">${unmatched.length} movimiento${unmatched.length!==1?'s':''} sin ticket</div></div>
     <div class="stitle" style="margin-bottom:8px">Detalle</div>
-    ${unmatched.map(m=>`<div class="titem" style="cursor:default"><div class="tthumb">🏦</div><div class="tinfo"><div class="tname">${esc(m.descripcion)}</div><div class="tmeta">${fmtDate(m.fecha)}</div></div><div class="tright"><div class="tamount" style="color:var(--red)">${fmtEur(Math.abs(m.importe))}</div><span class="tag tag-err">Sin ticket</span></div></div>`).join('')}
-  `;
+    ${unmatched.map(m=>`<div class="titem" style="cursor:default"><div class="tthumb">🏦</div><div class="tinfo"><div class="tname">${esc(m.descripcion)}</div><div class="tmeta">${fmtDate(m.fecha)}</div></div><div class="tright"><div class="tamount" style="color:var(--red)">${fmtEur(Math.abs(m.importe))}</div><span class="tag tag-err">Sin ticket</span></div></div>`).join('')}`;
 }
 
 // ═══════════════════════════════════════════════
