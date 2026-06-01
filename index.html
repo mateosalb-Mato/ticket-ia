@@ -251,8 +251,9 @@ select option{background:var(--bg3)}
 // CONFIGURACIÓN — AÑADE TU API KEY AQUÍ
 // ═══════════════════════════════════════════════
 
-const CLAUDE_URL = 'https://ticket-ia-proxy.mateos-alb.workers.dev/';
-const PA_URL = 'https://defaultd59476705f934d1eb339486ce28cdf.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/3990db7422084c0eb8dc389036769801/triggers/manual/paths/invoke?api-version=1';
+const WORKER = 'https://ticket-ia-proxy.mateos-alb.workers.dev';
+const CLAUDE_URL = WORKER + '/claude';
+const PA_URL = WORKER + '/pa';
 
 // ═══════════════════════════════════════════════
 // ESTADO
