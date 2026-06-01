@@ -337,8 +337,7 @@ select option{background:var(--bg3)}
 // CONFIGURACIÓN — edita estas dos líneas si cambia
 // ═══════════════════════════════════════════════
 const PA_URL = 'https://defaultd59476705f934d1eb339486ce28cdf.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/3990db7422084c0eb8dc389036769801/triggers/manual/paths/invoke?api-version=1';
-
-const CLAUDE_API = 'https://api.anthropic.com/v1/messages';
+const PA_ANALIZAR = 'https://defaultd59476705f934d1eb339486ce28cdf.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/204df270fd6e4bbd871bd5602640ab44/triggers/manual/paths/invoke?api-version=1';
 
 // ═══════════════════════════════════════════════
 // ESTADO
@@ -454,20 +453,14 @@ async function analyzeTicket(b64full){
 
   try {
     setStep('ap1','done'); setStep('ap2','active'); animFill(fill,40,78,700);
-    const resp = await fetch(CLAUDE_API,{
+    const resp = await fetch(PA_ANALIZAR,{
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model:'claude-sonnet-4-20250514', max_tokens:500,
-        system:`Extrae datos de tickets de compra. Responde SOLO con JSON válido sin backticks ni texto extra. Formato: {"comercio":"nombre","importe":número,"fecha":"YYYY-MM-DD","categoria":"Alimentación|Combustible|Restauración|Alojamiento|Transporte|Farmacia|Material oficina|Otros","notas":"texto breve"}. Usa null si no puedes leer un campo.`,
-        messages:[{role:'user',content:[
-          {type:'image',source:{type:'base64',media_type:mtype,data:b64}},
-          {type:'text',text:'Extrae los datos de este ticket de compra.'}
-        ]}]
-      })
+      body: JSON.stringify({ imagen: b64, tipo: mtype })
     });
     setStep('ap2','done'); animFill(fill,78,95,300);
     const data = await resp.json();
-    const raw  = data.content?.find(b=>b.type==='text')?.text || '{}';
+    // Power Automate devuelve la respuesta de Claude directamente
+    const raw = data?.content?.[0]?.text || data?.body?.content?.[0]?.text || '{}';
     let p = {};
     try{ p = JSON.parse(raw.replace(/```json|```/g,'').trim()); }catch(e){}
     if(p.comercio)    document.getElementById('fCom').value = p.comercio;
@@ -675,20 +668,17 @@ async function handlePDF(input){
     const b64=e.target.result.split(',')[1];
     try{
       setStep('ps1','done'); setStep('ps2','active'); animFill(fill,25,60,800);
-      const resp=await fetch(CLAUDE_API,{
+      const resp=await fetch(PA_ANALIZAR,{
         method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',max_tokens:1500,
-          system:`Eres experto en extractos bancarios españoles. Responde SOLO con JSON válido sin backticks. Formato: {"movimientos":[{"fecha":"YYYY-MM-DD","descripcion":"texto","importe":número_negativo}]}. Solo cargos/salidas. Máximo 30.`,
-          messages:[{role:'user',content:[
-            {type:'document',source:{type:'base64',media_type:'application/pdf',data:b64}},
-            {type:'text',text:'Extrae todos los cargos de este extracto bancario español.'}
-          ]}]
+          imagen: b64,
+          tipo: 'application/pdf',
+          modo: 'extracto'
         })
       });
       setStep('ps2','done'); setStep('ps3','active'); animFill(fill,60,85,600);
       const data=await resp.json();
-      const raw=data.content?.find(b=>b.type==='text')?.text||'{"movimientos":[]}';
+      const raw=data?.content?.[0]?.text || data?.body?.content?.[0]?.text || '{"movimientos":[]}';
       let parsed={movimientos:[]};
       try{parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());}catch(e){}
       const result=doMatch(parsed.movimientos||[]);
